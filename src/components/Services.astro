@@ -1,0 +1,175 @@
+---
+export interface Service {
+  icon: string;
+  title: string;
+  description: string;
+  color: string;
+  borderColor: string;
+  bgGradient: string;
+}
+
+export interface Props {
+  title?: string;
+  services?: Service[];
+}
+
+const { 
+  title = "Servicios",
+  services = [
+    {
+      icon: "🎈",
+      title: "Decoración de eventos",
+      description: "Transformamos cualquier espacio con arreglos de globos para fiestas, cumpleaños, bodas y más.",
+      color: "text-pink-600",
+      borderColor: "border-pink-200",
+      bgGradient: "from-pink-50 to-pink-100"
+    },
+    {
+      icon: "🎉",
+      title: "Arreglos personalizados",
+      description: "Creamos arreglos únicos y personalizados para sorprender a esa persona especial.",
+      color: "text-yellow-500",
+      borderColor: "border-yellow-200",
+      bgGradient: "from-yellow-50 to-yellow-100"
+    },
+    {
+      icon: "🚚",
+      title: "Entrega a domicilio",
+      description: "Llevamos la decoración y los arreglos a la puerta de tu casa o evento.",
+      color: "text-blue-500",
+      borderColor: "border-blue-200",
+      bgGradient: "from-blue-50 to-blue-100"
+    }
+  ]
+} = Astro.props;
+---
+
+<section class="py-20 bg-white relative overflow-hidden">
+  <!-- Background decorative elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-20 right-20 w-40 h-40 bg-gradient-to-br from-pink-200 to-purple-200 rounded-full opacity-10"></div>
+    <div class="absolute bottom-20 left-20 w-32 h-32 bg-gradient-to-br from-blue-200 to-purple-200 rounded-full opacity-10"></div>
+  </div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="max-w-6xl mx-auto">
+      <!-- Header Section -->
+      <div class="text-center mb-16">
+        <h2 class="text-5xl font-bold text-gray-800 mb-6 bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
+          Nuestros Servicios
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          Ofrecemos una amplia gama de servicios de decoración con globos para hacer de tu evento algo extraordinario
+        </p>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          {
+            icon: "🎂",
+            title: "Cumpleaños",
+            description: "Decoraciones temáticas y coloridas para celebrar el día más especial del año",
+            features: ["Temáticas personalizadas", "Arreglos de mesa", "Decoración de paredes"],
+            color: "from-pink-500 to-rose-500"
+          },
+          {
+            icon: "💒",
+            title: "Bodas",
+            description: "Decoración elegante y romántica para el día más importante de tu vida",
+            features: ["Arcos decorativos", "Centros de mesa", "Pasillo de entrada"],
+            color: "from-purple-500 to-indigo-500"
+          },
+          {
+            icon: "👶",
+            title: "Baby Shower",
+            description: "Celebración dulce y especial para la llegada del nuevo bebé",
+            features: ["Temáticas de género", "Decoración de sillas", "Fotografía"],
+            color: "from-blue-500 to-cyan-500"
+          },
+          {
+            icon: "🎓",
+            title: "Graduaciones",
+            description: "Festejo del logro académico con decoración festiva y motivadora",
+            features: ["Banderas y pancartas", "Decoración de escenario", "Fotografía"],
+            color: "from-green-500 to-emerald-500"
+          },
+          {
+            icon: "💝",
+            title: "Aniversarios",
+            description: "Celebración romántica del amor y el compromiso compartido",
+            features: ["Decoración romántica", "Cenas especiales", "Fotografía"],
+            color: "from-red-500 to-pink-500"
+          },
+          {
+            icon: "🏢",
+            title: "Eventos Corporativos",
+            description: "Ambiente profesional y festivo para celebraciones empresariales",
+            features: ["Branding corporativo", "Decoración de escenario", "Fotografía"],
+            color: "from-gray-500 to-slate-500"
+          }
+        ].map((service, index) => (
+          <div class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-transparent overflow-hidden">
+            <!-- Background gradient on hover -->
+            <div class={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+            
+            <!-- Icon -->
+            <div class="relative z-10 text-center mb-6">
+              <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-pink-100 to-purple-100 rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                <span class="text-4xl">{service.icon}</span>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="relative z-10">
+              <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-pink-600 group-hover:to-purple-600 group-hover:bg-clip-text transition-all duration-300">
+                {service.title}
+              </h3>
+              
+              <p class="text-gray-600 mb-6 leading-relaxed text-center">
+                {service.description}
+              </p>
+
+              <!-- Features -->
+              <div class="space-y-3">
+                {service.features.map((feature) => (
+                  <div class="flex items-center space-x-3">
+                    <div class="flex-shrink-0 w-2 h-2 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full"></div>
+                    <span class="text-sm text-gray-600">{feature}</span>
+                  </div>
+                ))}
+              </div>
+
+              <!-- CTA Button -->
+              <div class="mt-8 text-center">
+                <button class="px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-full font-semibold text-sm hover:scale-105 hover:shadow-lg transition-all duration-300 transform group-hover:shadow-xl">
+                  Solicitar Cotización
+                </button>
+              </div>
+            </div>
+
+            <!-- Decorative corner -->
+            <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-500 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-bl-full"></div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Bottom CTA -->
+      <div class="mt-16 text-center">
+        <div class="bg-gradient-to-r from-pink-50 to-purple-50 rounded-3xl p-8 shadow-lg">
+          <h3 class="text-2xl font-bold text-gray-800 mb-4">¿No encuentras lo que buscas?</h3>
+          <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+            Cada evento es único. Contáctanos para crear una decoración personalizada 
+            que se adapte perfectamente a tus necesidades y visión.
+          </p>
+          <a href="#contact" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-full font-semibold text-lg hover:scale-105 hover:shadow-xl transition-all duration-300">
+            <span>¡Hablemos de tu Proyecto!</span>
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 

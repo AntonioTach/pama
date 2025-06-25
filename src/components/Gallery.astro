@@ -1,0 +1,95 @@
+---
+export interface GalleryItem {
+  icon: string;
+  bgColor: string;
+  borderColor: string;
+  textColor: string;
+  title: string;
+}
+
+export interface Props {
+  title?: string;
+  items?: GalleryItem[];
+  placeholderText?: string;
+}
+
+const { 
+  title = "Galería",
+  items = [
+    { icon: "🎈", bgColor: "bg-gradient-to-br from-pink-100 to-pink-200", borderColor: "border-pink-200", textColor: "text-pink-600", title: "Decoración de Fiestas" },
+    { icon: "🎉", bgColor: "bg-gradient-to-br from-blue-100 to-blue-200", borderColor: "border-blue-200", textColor: "text-blue-600", title: "Arreglos Especiales" },
+    { icon: "🎂", bgColor: "bg-gradient-to-br from-yellow-100 to-yellow-200", borderColor: "border-yellow-200", textColor: "text-yellow-600", title: "Cumpleaños" },
+    { icon: "🥳", bgColor: "bg-gradient-to-br from-green-100 to-green-200", borderColor: "border-green-200", textColor: "text-green-600", title: "Celebraciones" },
+    { icon: "💝", bgColor: "bg-gradient-to-br from-purple-100 to-purple-200", borderColor: "border-purple-200", textColor: "text-purple-600", title: "Regalos" },
+    { icon: "✨", bgColor: "bg-gradient-to-br from-indigo-100 to-indigo-200", borderColor: "border-indigo-200", textColor: "text-indigo-600", title: "Eventos Especiales" },
+    { icon: "🎊", bgColor: "bg-gradient-to-br from-red-100 to-red-200", borderColor: "border-red-200", textColor: "text-red-600", title: "Fiestas" },
+    { icon: "🌟", bgColor: "bg-gradient-to-br from-orange-100 to-orange-200", borderColor: "border-orange-200", textColor: "text-orange-600", title: "Momentos Mágicos" }
+  ],
+  placeholderText = "¡Pronto más fotos de nuestros trabajos!"
+} = Astro.props;
+---
+
+<section id="gallery" class="w-full py-20 px-4 flex flex-col items-center relative">
+  <!-- Elementos decorativos de fondo (reducidos) -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-20 left-20 animate-float-slow text-4xl opacity-10">📸</div>
+    <div class="absolute bottom-20 right-20 animate-float-delayed-1 text-3xl opacity-10">✨</div>
+  </div>
+
+  <svg class="absolute left-0 bottom-0 -z-10 animate-rotate-slow" width="120" height="120" viewBox="0 0 120 120">
+    <ellipse cx="60" cy="60" rx="60" ry="60" fill="#60A5FA" fill-opacity="0.05"/>
+  </svg>
+  
+  <h2 class="text-4xl font-bold text-blue-700 mb-4 animate-fade-in-up">{title}</h2>
+  <p class="text-lg text-gray-600 mb-12 text-center max-w-2xl animate-fade-in-up">Descubre la magia de nuestros trabajos</p>
+  
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-5xl">
+    {items.map((item, index) => (
+      <div class={`${item.bgColor} rounded-2xl shadow-lg flex flex-col items-center justify-center border-2 ${item.borderColor} hover:scale-105 hover:shadow-xl transition-all duration-300 group relative overflow-hidden animate-fade-in-up aspect-square`} style={`animation-delay: ${index * 0.1}s`}>
+        <!-- Icono principal -->
+        <div class="relative mb-3">
+          <span class={`text-5xl animate-bounce-gentle group-hover:scale-110 transition-all duration-300 ${item.textColor}`}>
+            {item.icon}
+          </span>
+        </div>
+        
+        <!-- Título que aparece en hover -->
+        <h3 class={`text-sm font-semibold ${item.textColor} text-center opacity-0 group-hover:opacity-100 transform translate-y-1 group-hover:translate-y-0 transition-all duration-300`}>
+          {item.title}
+        </h3>
+        
+        <!-- Overlay de información -->
+        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300 flex items-center justify-center">
+          <div class="text-gray-700 text-center opacity-0 group-hover:opacity-100 transform scale-90 group-hover:scale-100 transition-all duration-300">
+            <p class="text-xs font-medium">Ver más</p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+  
+  <div class="mt-10 text-center animate-fade-in-up">
+    <p class="text-gray-500 text-base mb-4">{placeholderText}</p>
+    
+    <!-- Botón de galería completa -->
+    <button class="px-6 py-3 bg-gradient-to-r from-pink-400 to-purple-400 text-white rounded-full font-semibold text-base hover:scale-105 hover:shadow-lg transition-all duration-300">
+      Ver Galería Completa
+    </button>
+  </div>
+  
+  <!-- Contador de trabajos (más sutil) -->
+  <div class="mt-12 grid grid-cols-3 gap-6 text-center animate-fade-in-up">
+    <div class="bg-white bg-opacity-80 rounded-xl p-4 shadow-md hover:scale-105 transition-all duration-300">
+      <div class="text-2xl font-bold text-pink-600">50+</div>
+      <div class="text-gray-600 text-sm">Eventos Realizados</div>
+    </div>
+    <div class="bg-white bg-opacity-80 rounded-xl p-4 shadow-md hover:scale-105 transition-all duration-300">
+      <div class="text-2xl font-bold text-blue-600">100+</div>
+      <div class="text-gray-600 text-sm">Clientes Satisfechos</div>
+    </div>
+    <div class="bg-white bg-opacity-80 rounded-xl p-4 shadow-md hover:scale-105 transition-all duration-300">
+      <div class="text-2xl font-bold text-purple-600">5⭐</div>
+      <div class="text-gray-600 text-sm">Calificación</div>
+    </div>
+  </div>
+</section> 

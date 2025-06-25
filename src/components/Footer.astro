@@ -1,0 +1,60 @@
+---
+export interface SocialLink {
+  name: string;
+  url: string;
+  icon: string;
+  color: string;
+  label: string;
+}
+
+export interface Props {
+  socialLinks?: SocialLink[];
+  companyName?: string;
+  copyrightText?: string;
+}
+
+const { 
+  socialLinks = [
+    {
+      name: "WhatsApp",
+      url: "https://wa.me/",
+      icon: "📱",
+      color: "text-green-600",
+      label: "WhatsApp"
+    },
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/pama_decoracion/",
+      icon: "📸",
+      color: "text-pink-600",
+      label: "Instagram"
+    },
+    {
+      name: "Facebook",
+      url: "https://www.facebook.com/profile.php?id=61563996803966",
+      icon: "👍",
+      color: "text-blue-600",
+      label: "Facebook"
+    }
+  ],
+  companyName = "PAMA - Decoración con Globos",
+  copyrightText = "Todos los derechos reservados."
+} = Astro.props;
+---
+
+<footer class="w-full bg-pink-100 py-6 mt-12 flex flex-col items-center">
+  <div class="flex gap-6 mb-2">
+    {socialLinks.map((link) => (
+      <a 
+        href={link.url} 
+        class={`${link.color} hover:underline text-2xl`} 
+        target="_blank" 
+        rel="noopener" 
+        aria-label={link.label}
+      >
+        <span>{link.icon}</span>
+      </a>
+    ))}
+  </div>
+  <p class="text-gray-500 text-sm">&copy; {new Date().getFullYear()} {companyName}. {copyrightText}</p>
+</footer> 

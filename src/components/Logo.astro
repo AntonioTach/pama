@@ -1,0 +1,27 @@
+---
+export interface Props {
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  className?: string;
+}
+
+const { 
+  size = 'md',
+  className = ''
+} = Astro.props;
+
+const sizeClasses = {
+  sm: 'w-16 h-16',
+  md: 'w-24 h-24',
+  lg: 'w-32 h-32',
+  xl: 'w-48 h-48'
+};
+---
+
+<div class={`flex items-center justify-center ${sizeClasses[size]} ${className}`}>
+  <!-- Logo real -->
+  <img 
+    src="/images/logo-pama.jpg" 
+    alt="PAMA - Decoración con Globos" 
+    class="w-full h-full object-contain"
+  />
+</div> 

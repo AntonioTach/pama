@@ -1,0 +1,79 @@
+---
+// LogoSection component for PAMA
+---
+
+<section class="py-20 bg-gradient-to-br from-pink-50 via-white to-purple-50 relative overflow-hidden">
+  <!-- Background decorative elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-10 left-1/4 w-24 h-24 bg-pink-200 rounded-full opacity-20 animate-pulse"></div>
+    <div class="absolute bottom-10 right-1/4 w-32 h-32 bg-purple-200 rounded-full opacity-20 animate-pulse" style="animation-delay: 1s;"></div>
+  </div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="max-w-4xl mx-auto">
+      <!-- Header Section -->
+      <div class="text-center mb-16">
+        <h2 class="text-5xl font-bold text-gray-800 mb-6 bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
+          Nuestra Identidad
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          El logo de PAMA representa nuestra pasión por crear momentos mágicos y experiencias inolvidables
+        </p>
+      </div>
+      
+      <!-- Logo Display -->
+      <div class="flex justify-center mb-12">
+        <div class="relative group">
+          <!-- Main logo container -->
+          <div class="bg-white rounded-3xl p-8 shadow-2xl border border-gray-100 hover:shadow-3xl transition-all duration-500 transform hover:scale-105">
+            <div class="relative">
+              <!-- Logo image -->
+              <img 
+                src="/images/logo-pama.jpg" 
+                alt="Logo PAMA - Decoración con globos"
+                class="w-80 h-80 object-contain rounded-2xl shadow-lg"
+              />
+              
+              <!-- Decorative elements around logo -->
+              <div class="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full opacity-80 animate-bounce"></div>
+              <div class="absolute -top-4 -right-4 w-6 h-6 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full opacity-80 animate-bounce" style="animation-delay: 0.5s;"></div>
+              <div class="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-blue-400 to-pink-400 rounded-full opacity-80 animate-bounce" style="animation-delay: 1s;"></div>
+              <div class="absolute -bottom-4 -right-4 w-8 h-8 bg-gradient-to-r from-yellow-400 to-pink-400 rounded-full opacity-80 animate-bounce" style="animation-delay: 1.5s;"></div>
+            </div>
+          </div>
+          
+          <!-- Floating balloon elements -->
+          <div class="absolute -top-8 -right-8 text-4xl animate-float-slow opacity-60">🎈</div>
+          <div class="absolute -bottom-8 -left-8 text-3xl animate-float-delayed-1 opacity-60">✨</div>
+        </div>
+      </div>
+
+      <!-- Logo Description -->
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl text-white">🎨</span>
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Diseño Único</h3>
+          <p class="text-gray-600 text-sm">Cada elemento está cuidadosamente diseñado para representar nuestra creatividad</p>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl text-white">💎</span>
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Calidad Premium</h3>
+          <p class="text-gray-600 text-sm">Refleja nuestro compromiso con la excelencia en cada proyecto</p>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl text-white">🌟</span>
+          </div>
+          <h3 class="text-lg font-bold text-gray-800 mb-2">Experiencia</h3>
+          <p class="text-gray-600 text-sm">Representa los años de experiencia y pasión por la decoración</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 

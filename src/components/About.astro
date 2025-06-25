@@ -1,0 +1,119 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "Sobre PAMA",
+  description = "Somos especialistas en decoración con globos para todo tipo de eventos. Creamos ambientes mágicos y personalizados para que tu celebración sea única y memorable."
+} = Astro.props;
+---
+
+<section class="py-20 bg-gradient-to-br from-white via-pink-50 to-purple-50 relative overflow-hidden">
+  <!-- Background decorative elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-10 left-10 w-32 h-32 bg-pink-200 rounded-full opacity-20 animate-pulse"></div>
+    <div class="absolute bottom-10 right-10 w-24 h-24 bg-purple-200 rounded-full opacity-20 animate-pulse" style="animation-delay: 1s;"></div>
+    <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-blue-200 rounded-full opacity-20 animate-bounce" style="animation-delay: 0.5s;"></div>
+  </div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="max-w-6xl mx-auto">
+      <!-- Header Section -->
+      <div class="text-center mb-16">
+        <h2 class="text-5xl font-bold text-gray-800 mb-6 bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
+          Sobre PAMA
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          Somos especialistas en crear momentos mágicos a través de la decoración con globos. 
+          Cada evento es único y merece ser extraordinario.
+        </p>
+      </div>
+
+      <!-- Content Grid -->
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Left Column - Image/Visual -->
+        <div class="relative">
+          <div class="bg-gradient-to-br from-pink-400 to-purple-500 rounded-3xl p-8 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+            <div class="bg-white rounded-2xl p-6 shadow-lg">
+              <div class="text-center">
+                <div class="text-8xl mb-4">🎈</div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Decoración Profesional</h3>
+                <p class="text-gray-600">Transformamos espacios en experiencias inolvidables</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Floating elements -->
+          <div class="absolute -top-4 -right-4 w-20 h-20 bg-yellow-400 rounded-full opacity-80 animate-bounce"></div>
+          <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-pink-400 rounded-full opacity-80 animate-bounce" style="animation-delay: 0.5s;"></div>
+        </div>
+
+        <!-- Right Column - Content -->
+        <div class="space-y-8">
+          <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl flex items-center justify-center">
+                <span class="text-2xl">✨</span>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Experiencia y Creatividad</h3>
+                <p class="text-gray-600 leading-relaxed">
+                  Con años de experiencia en el mundo de la decoración, combinamos técnicas tradicionales 
+                  con las últimas tendencias para crear diseños únicos y memorables.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
+                <span class="text-2xl">🎨</span>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Diseños Personalizados</h3>
+                <p class="text-gray-600 leading-relaxed">
+                  Cada proyecto es único. Trabajamos contigo para entender tu visión y crear 
+                  decoraciones que reflejen tu estilo y personalidad.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-xl flex items-center justify-center">
+                <span class="text-2xl">💝</span>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Atención al Detalle</h3>
+                <p class="text-gray-600 leading-relaxed">
+                  Nos enfocamos en cada detalle para asegurar que tu evento sea perfecto. 
+                  Desde la planificación hasta la ejecución, cuidamos cada aspecto.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Section -->
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+        {[
+          { number: "500+", label: "Eventos Realizados", icon: "🎉" },
+          { number: "50+", label: "Clientes Satisfechos", icon: "😊" },
+          { number: "5+", label: "Años de Experiencia", icon: "⭐" },
+          { number: "100%", label: "Compromiso", icon: "💯" }
+        ].map((stat) => (
+          <div class="text-center bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div class="text-4xl mb-2">{stat.icon}</div>
+            <div class="text-3xl font-bold text-gray-800 mb-1">{stat.number}</div>
+            <div class="text-sm text-gray-600">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section> 
